@@ -50,8 +50,8 @@ const Carousels = () => {
             }}>
                 <Carousel
                     data={data}
-                    time={2000}
-                    width="850px"
+                    time={4000}
+                    width="auto"
                     height="500px"
                     captionStyle={captionStyle}
                     radius="10px"
@@ -68,7 +68,7 @@ const Carousels = () => {
                     thumbnailWidth="100px"
                     style={{
                         textAlign: "center",
-                        maxWidth: "850px",
+                        maxWidth: "auto",
                         maxHeight: "500px",
                         margin: "40px auto",
                     }}

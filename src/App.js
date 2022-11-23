@@ -6,6 +6,8 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import img from './assets/images/404.jpg'
+import Catagories from './Pages/Home/Catagories';
+import Products from './Pages/Home/Products';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +30,10 @@ function App() {
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/product/:id',
+          element: <Products></Products>
         },
       ]
     },
