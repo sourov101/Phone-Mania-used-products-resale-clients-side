@@ -5,6 +5,7 @@ import Blog from './Pages/Blog/Blog';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import img from './assets/images/404.jpg'
 
 function App() {
   const router = createBrowserRouter([
@@ -29,7 +30,13 @@ function App() {
           element: <Blog></Blog>
         },
       ]
-    }
+    },
+
+    {
+      path: '*',
+      element: <div><img className='h-[650px] w-full' src={img} alt="" /></div>
+    },
+
   ])
   return (
     <div className="App">
