@@ -16,7 +16,7 @@ const AdvertisedItem = () => {
     }
     return (
         <div>
-            <h1 className='text-3xl mt-10'>Advertised Item</h1>
+            <h1 className='text-3xl mt-10'>Available Items</h1>
             <div >
                 {
                     products.map(product => <AdvertisedItemCard key={product._id} product={product}></AdvertisedItemCard>)

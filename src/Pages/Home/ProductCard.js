@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheck } from 'react-icons/fa';
 
 const ProductCard = ({ product }) => {
     const { name, image, resalePrice, originalPrice, yearOfUse, postTime, sellerName, location } = product;
@@ -14,7 +15,13 @@ const ProductCard = ({ product }) => {
                     <p>Original Price: {originalPrice}</p>
                     <p>Year Of Use: {yearOfUse}</p>
                     <p>Post Time: {postTime}</p>
-                    <p>Seller Name: {sellerName}</p>
+
+
+                    <p className='flex justify-between'>Seller Name: {sellerName}{
+                        product.verified === 'true' && <FaCheck className='text-primary mx-2' />
+                    }</p>
+
+
                     <p>Location: {location}</p>
                 </div>
                 <div className='text-center my-4'>

@@ -9,8 +9,9 @@ const AdvertisedItemCard = ({ product }) => {
             {
                 product.availability === 'available' &&
 
-                <div className='mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
-                    <div>
+                <div >
+
+                    <div className='mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
                         <div className="card w-96 bg-base-100 shadow-xl ">
                             <figure className="px-10 pt-10">
                                 <img src={image} alt="Shoes" className="rounded-xl" />

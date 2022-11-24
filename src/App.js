@@ -8,6 +8,7 @@ import Signup from './Pages/Signup/Signup';
 import img from './assets/images/404.jpg'
 import Products from './Pages/Home/Products';
 import AdvertisedItem from './Pages/Home/AdvertisedItem';
+import PrivateRoute from './Routes/PrivateRoutes';
 
 function App() {
   const router = createBrowserRouter([
@@ -33,7 +34,7 @@ function App() {
         },
         {
           path: '/product/:id',
-          element: <Products></Products>,
+          element: <PrivateRoute><Products></Products></PrivateRoute>,
           loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
         },
 
