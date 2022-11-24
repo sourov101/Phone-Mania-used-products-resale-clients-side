@@ -31,7 +31,7 @@ const Carousels = () => {
 
 
     ];
-    console.log(data);
+
     const captionStyle = {
         fontSize: '2em',
         fontWeight: 'bold',

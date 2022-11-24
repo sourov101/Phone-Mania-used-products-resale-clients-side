@@ -63,7 +63,7 @@ const Signup = () => {
                     <img src={signupImg} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-1/2  shadow-2xl bg-base-100">
-                    <h1 className="text-3xl font-bold mt-6">Signup now!</h1>
+                    <h1 className="text-3xl font-bold mt-6 text-center">Signup now!</h1>
                     <div className="card-body">
                         <form onSubmit={handleSubmit(handleSignUp)}>
                             <div className="form-control w-full ">
@@ -87,11 +87,7 @@ const Signup = () => {
                                     <option selected>User</option>
                                     <option>Seller</option>
                                 </select>
-                                {/* <select {...register("category", { required: true })}>
-                                    <option value="">Select...</option>
-                                    <option value="A">Option A</option>
-                                    <option value="B">Option B</option>
-                                </select> */}
+
 
                             </div>
 

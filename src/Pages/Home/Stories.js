@@ -28,7 +28,7 @@ const Stories = () => {
     return (
 
         <div>
-            <h1 className='text-5xl mt-10'>Popular Stories</h1>
+            <h1 className='text-3xl mt-10'>Popular Stories</h1>
             <div className='grid my-10 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     stories.map(story =>
