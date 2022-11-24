@@ -17,6 +17,9 @@ const ProductCard = ({ product }) => {
                     <p>Seller Name: {sellerName}</p>
                     <p>Location: {location}</p>
                 </div>
+                <div className='text-center my-4'>
+                    <button className='btn btn-primary'>Book Now</button>
+                </div>
             </div>
         </div>
     );

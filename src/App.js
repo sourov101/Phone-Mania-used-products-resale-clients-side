@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import img from './assets/images/404.jpg'
 import Products from './Pages/Home/Products';
+import AdvertisedItem from './Pages/Home/AdvertisedItem';
 
 function App() {
   const router = createBrowserRouter([
@@ -35,6 +36,8 @@ function App() {
           element: <Products></Products>,
           loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
         },
+
+
       ]
     },
 
