@@ -13,7 +13,7 @@ const AdvertisedItem = () => {
     })
 
     if (isLoading) {
-        <div className="radial-progress" style={{ "--value": 100 }}>100%</div>
+        return <div className='mx-auto'><div className="radial-progress text-center" style={{ "--value": 100 }}>100%</div></div>
     }
     return (
         <div>

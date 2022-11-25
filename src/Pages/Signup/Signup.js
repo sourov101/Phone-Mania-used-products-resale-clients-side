@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import signupImg from '../../assets/images/signup.jpg'
 import { AuthContext } from '../../context/AuthProvider';
+import useAccessToken from '../../hooks/useAccessToken';
 
 
 const Signup = () => {
@@ -11,8 +12,13 @@ const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [accessToken] = useAccessToken(createdUserEmail);
     const navigate = useNavigate();
 
+    if (accessToken) {
+        navigate('/');
+    }
 
     const handleSignUp = (data) => {
         console.log('data', data);
@@ -49,11 +55,7 @@ const Signup = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-
-
-
-                    navigate('/');
-
+                    setCreatedUserEmail(email);
                     console.log(data);
                 })
         }
@@ -93,12 +95,14 @@ const Signup = () => {
 
                     toast.success('User created successfully');
 
-                    navigate('/');
+                    setCreatedUserEmail(email);
                     console.log(data);
                 })
         }
 
     }
+
+
 
     return (
 

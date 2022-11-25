@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading) {
-        return <div className="radial-progress" style={{ "--value": 100 }}>100%</div>
+        return <div className='mx-auto'><div className="radial-progress" style={{ "--value": 100 }}>100%</div></div>
     }
 
     if (user) {

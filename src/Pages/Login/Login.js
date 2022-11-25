@@ -1,14 +1,24 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useLocation, useNavigate } from 'react-router-dom';
 import loginImage from '../../assets/images/login.jpg'
 import { AuthContext } from '../../context/AuthProvider';
+import useAccessToken from '../../hooks/useAccessToken';
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
     const [loginUserMail, setLoginUserMail] = useState('');
+    const [accessToken] = useAccessToken(loginUserMail);
 
+    const location = useLocation();
+    const navigate = useNavigate();
 
+    const from = location.state?.from?.pathname || '/';
+
+    if (accessToken) {
+        navigate(from, { replace: true });
+    }
 
     const handleLogin = data => {
         console.log(data);
