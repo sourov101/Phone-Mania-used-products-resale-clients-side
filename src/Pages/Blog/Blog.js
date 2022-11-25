@@ -5,16 +5,16 @@ const Blog = () => {
         <>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-title bg-base-100 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                     1. What are the different ways to manage a state in a React application?
                 </div>
-                <div className="collapse-content bg-base-200 text-base-content peer-checked:bg-secondary peer-checked:text-primary-content">
+                <div className="collapse-content bg-base-100 text-base-content peer-checked:bg-secondary peer-checked:text-primary-content">
                     <p>There are four main types of state you need to properly manage in your React apps: 1. Local state, 2. Global state, 3. Server state, 4. URL state.</p>
                 </div>
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-title bg-base-100 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                     2. How does prototypical inheritance work?
                 </div>
                 <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content">
@@ -23,7 +23,7 @@ const Blog = () => {
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-title bg-base-100 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                     3. What is a unit test? Why should we write unit tests?
                 </div>
                 <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content">
@@ -33,7 +33,7 @@ const Blog = () => {
             </div>
             <div className="collapse">
                 <input type="checkbox" className="peer" />
-                <div className="collapse-title bg-base-200 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <div className="collapse-title bg-base-100 text-base-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                     4. React vs. Angular vs. Vue?
                 </div>
                 <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-primary-content">

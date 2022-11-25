@@ -7,8 +7,11 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import img from './assets/images/404.jpg'
 import Products from './Pages/Home/Products';
-import AdvertisedItem from './Pages/Home/AdvertisedItem';
 import PrivateRoute from './Routes/PrivateRoutes';
+import { Toaster } from 'react-hot-toast';
+import DashBoardLayout from './Layouts/DashBoardLayout';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyBookings from './Pages/Dashboard/MyBookings';
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +44,19 @@ function App() {
 
       ]
     },
+    {
+      path: '/dashboard',
+      element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+      children: [
+        {
+          path: '/dashboard',
+          element: <MyBookings></MyBookings>
+        },
+
+      ]
+
+
+    },
 
     {
       path: '*',
@@ -51,6 +67,7 @@ function App() {
   return (
     <div className="">
       <RouterProvider router={router}></RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }

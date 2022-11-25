@@ -18,7 +18,7 @@ const Catagories = () => {
 
     }, [])
     if (loading) {
-        <div>loading</div>
+        <div className="radial-progress" style={{ "--value": 100 }}>100%</div>
     }
     return (
         <div>

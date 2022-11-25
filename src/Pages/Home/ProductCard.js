@@ -43,6 +43,7 @@ const ProductCard = ({ product }) => {
 
                         <BookNowModal
                             book={book}
+                            setBook={setBook}
                         >
 
                         </BookNowModal>}
