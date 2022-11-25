@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import signupImg from '../../assets/images/signup.jpg'
 import { AuthContext } from '../../context/AuthProvider';
 
@@ -10,21 +11,25 @@ const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
+    const navigate = useNavigate();
+
 
     const handleSignUp = (data) => {
-        console.log(data);
+        console.log('data', data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
 
+                toast.success('User created successfully');
+
                 const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
                     .then(() => {
-
+                        saveUserToDb(data.name, data.email, data.userType);
                     })
                     .catch(err => console.log(err));
             })
@@ -32,6 +37,26 @@ const Signup = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
+
+        const saveUserToDb = (name, email, userType) => {
+            const user = { name, email, userType };
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+
+
+
+                    navigate('/');
+
+                    console.log(data);
+                })
+        }
     }
 
 
@@ -44,14 +69,35 @@ const Signup = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-
+                        saveUserToDb(user?.displayName, user?.email, userInfo.userType);
                     })
-                console.log(user)
+                console.log('inside google', user)
 
             })
             .catch(error => {
                 console.error(error)
             })
+
+
+        const saveUserToDb = (name, email, userType) => {
+            const user = { name, email, userType };
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    toast.success('User created successfully');
+
+                    navigate('/');
+                    console.log(data);
+                })
+        }
+
     }
 
     return (
@@ -84,7 +130,7 @@ const Signup = () => {
                                 <label className="label"> <span className="label-text">Select User Type</span></label>
                                 <select {...register("userType", { required: true })} className="select select-bordered w-full ">
 
-                                    <option selected>User</option>
+                                    <option >User</option>
                                     <option>Seller</option>
                                 </select>
 
