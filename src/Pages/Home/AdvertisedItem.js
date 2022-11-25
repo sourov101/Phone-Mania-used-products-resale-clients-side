@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import AdvertisedItemCard from './AdvertisedItemCard';
 
 const AdvertisedItem = () => {
+    const [book, setBook] = useState(null);
     const { data: products = [], refetch, isLoading } = useQuery({
 
         queryKey: ['products'],
@@ -19,7 +20,8 @@ const AdvertisedItem = () => {
             <h1 className='text-3xl mt-10'>Available Items</h1>
             <div >
                 {
-                    products.map(product => <AdvertisedItemCard key={product._id} product={product}></AdvertisedItemCard>)
+                    products.map(product => <AdvertisedItemCard key={product._id} product={product}
+                        setBook={setBook}></AdvertisedItemCard>)
                 }
             </div>
         </div>

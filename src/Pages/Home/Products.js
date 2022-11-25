@@ -7,10 +7,13 @@ const Products = () => {
 
 
     return (
-        <div className='grid my-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
-            {
-                products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
-            }
+        <div >
+            <div className='grid my-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2'>
+                {
+                    products.map(product => <ProductCard key={product._id} product={product}></ProductCard>)
+                }
+            </div>
+
         </div>
     );
 };

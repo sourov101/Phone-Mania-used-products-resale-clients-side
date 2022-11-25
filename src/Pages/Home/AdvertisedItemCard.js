@@ -27,6 +27,7 @@ const AdvertisedItemCard = ({ product }) => {
                             </div>
                             <div className='text-center my-4'>
                                 <button className='btn btn-primary'>Book Now</button>
+
                             </div>
                         </div>
                     </div>

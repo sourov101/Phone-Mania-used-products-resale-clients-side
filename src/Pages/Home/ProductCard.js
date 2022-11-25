@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import BookNowModal from './BookNowModal';
+
 
 const ProductCard = ({ product }) => {
     const { name, image, resalePrice, originalPrice, yearOfUse, postTime, sellerName, location } = product;
+    const [book, setBook] = useState(null);
     return (
         <div className='mx-auto '>
             <div className="card w-96 bg-base-100 shadow-xl ">
@@ -25,7 +28,24 @@ const ProductCard = ({ product }) => {
                     <p>Location: {location}</p>
                 </div>
                 <div className='text-center my-4'>
-                    <button className='btn btn-primary'>Book Now</button>
+
+                    <label
+
+                        htmlFor="booking-modal"
+                        className="btn btn-primary text-white"
+                        onClick={() => setBook(product)}
+                    >Book Now</label>
+
+                </div>
+                <div>
+                    {book &&
+
+
+                        <BookNowModal
+                            book={book}
+                        >
+
+                        </BookNowModal>}
                 </div>
             </div>
         </div>
