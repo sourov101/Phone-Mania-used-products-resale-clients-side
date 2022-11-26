@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
-
+import { PacmanLoader } from 'react-spinners';
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
 
     if (loading) {
-        return <div className='mx-auto'><div className="radial-progress" style={{ "--value": 100 }}>100%</div></div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
 
     if (user) {

@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
 import { FaCheck } from 'react-icons/fa';
+import { PacmanLoader } from 'react-spinners';
 
 const AllSellers = () => {
 
@@ -66,7 +67,7 @@ const AllSellers = () => {
     }
 
     if (isLoading) {
-        return <div className='mx-auto'><div className="radial-progress" style={{ "--value": 100 }}>100%</div></div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
 
 

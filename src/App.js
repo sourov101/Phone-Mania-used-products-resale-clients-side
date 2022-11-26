@@ -17,6 +17,8 @@ import AllSellers from './Pages/Dashboard/AllSellers';
 import ReportedItems from './Pages/Dashboard/ReportedItems';
 import AdminRoute from './Routes/AdminRoutes';
 import AddProduct from './Pages/Dashboard/AddProduct';
+import MyProduct from './Pages/Dashboard/MyProduct';
+import SellerRoute from './Routes/SellerRoutes';
 
 function App() {
   const router = createBrowserRouter([
@@ -71,7 +73,11 @@ function App() {
         },
         {
           path: '/dashboard/addproduct',
-          element: <AddProduct></AddProduct>
+          element: <SellerRoute><AddProduct></AddProduct></SellerRoute>
+        },
+        {
+          path: '/dashboard/myproduct',
+          element: <SellerRoute><MyProduct></MyProduct></SellerRoute>
         },
 
       ]

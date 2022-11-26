@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
-
+import { PacmanLoader } from 'react-spinners';
 const AllUsers = () => {
 
 
@@ -50,7 +50,7 @@ const AllUsers = () => {
     }
 
     if (isLoading) {
-        return <div className='mx-auto'><div className="radial-progress" style={{ "--value": 100 }}>100%</div></div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
 
     return (

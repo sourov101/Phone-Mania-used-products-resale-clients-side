@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
-
+import { PacmanLoader } from 'react-spinners';
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
@@ -44,9 +44,7 @@ const AddProduct = () => {
     }
 
     if (loading) {
-        return <div className='mx-auto'>
-            <div className="radial-progress" style={{ "--value": 100 }}>100%</div>
-        </div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
 
     return (
@@ -122,6 +120,17 @@ const AddProduct = () => {
                         <option >excellent</option>
                         <option>good</option>
                         <option>fair</option>
+                    </select>
+
+
+                </div>
+                <div className="form-control w-full ">
+                    <label className="label"> <span className="label-text">Availability :</span> </label>
+                    <select {...register("availability", { required: true })} className="select select-bordered w-full ">
+
+                        <option >available</option>
+                        <option>sold</option>
+
                     </select>
 
 

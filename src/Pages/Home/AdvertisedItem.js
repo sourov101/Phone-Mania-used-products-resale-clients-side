@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import AdvertisedItemCard from './AdvertisedItemCard';
-
+import { PacmanLoader } from 'react-spinners';
 const AdvertisedItem = () => {
     const [book, setBook] = useState(null);
     const { data: products = [], refetch, isLoading } = useQuery({
@@ -13,7 +13,7 @@ const AdvertisedItem = () => {
     })
 
     if (isLoading) {
-        return <div className='mx-auto'><div className="radial-progress text-center" style={{ "--value": 100 }}>100%</div></div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
     return (
         <div>

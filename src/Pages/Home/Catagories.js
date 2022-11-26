@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PacmanLoader } from 'react-spinners';
 
 const Catagories = () => {
     const [brands, setBrands] = useState([]);
@@ -18,9 +19,8 @@ const Catagories = () => {
 
     }, [])
     if (loading) {
-        return <div className='mx-auto'>
-            <div className="radial-progress" style={{ "--value": 100 }}>100%</div>
-        </div>
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
+
     }
     return (
         <div>
