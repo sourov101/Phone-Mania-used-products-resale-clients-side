@@ -7,7 +7,7 @@ const MyBookings = () => {
     const { user } = useContext(AuthContext);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
-    const { data: bookedItems = [], isLoading, refetch } = useQuery({
+    const { data: bookedItems = [], refetch } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -50,7 +50,7 @@ const MyBookings = () => {
                                 <td>{Item.resalePrice}</td>
 
                                 <td>
-                                    {Item.resalePrice && !Item.paid && <Link to={`/dashboard/payment/${Item._id}`}><button className='btn btn-primary'>pay</button></Link>}
+                                    {Item.resalePrice && !Item.paid && <Link to={`/dashboard/payment/${Item._id}`}><button className='btn btn-info btn-sm'>pay</button></Link>}
                                     {
                                         Item.price && Item.paid && <span className='text-primary'>paid</span>
                                     }

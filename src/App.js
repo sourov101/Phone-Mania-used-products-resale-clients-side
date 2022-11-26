@@ -12,6 +12,11 @@ import { Toaster } from 'react-hot-toast';
 import DashBoardLayout from './Layouts/DashBoardLayout';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyBookings from './Pages/Dashboard/MyBookings';
+import AllUsers from './Pages/Dashboard/AllUsers';
+import AllSellers from './Pages/Dashboard/AllSellers';
+import ReportedItems from './Pages/Dashboard/ReportedItems';
+import AdminRoute from './Routes/AdminRoutes';
+import AddProduct from './Pages/Dashboard/AddProduct';
 
 function App() {
   const router = createBrowserRouter([
@@ -51,6 +56,22 @@ function App() {
         {
           path: '/dashboard',
           element: <MyBookings></MyBookings>
+        },
+        {
+          path: '/dashboard/allusers',
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: '/dashboard/allsellers',
+          element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+        },
+        {
+          path: '/dashboard/reporteditems',
+          element: <AdminRoute><ReportedItems></ReportedItems></AdminRoute>
+        },
+        {
+          path: '/dashboard/addproduct',
+          element: <AddProduct></AddProduct>
         },
 
       ]
