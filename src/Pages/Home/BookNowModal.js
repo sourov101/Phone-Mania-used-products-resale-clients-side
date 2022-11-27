@@ -3,7 +3,8 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 
 const BookNowModal = ({ book, setBook }) => {
-    const { name, resalePrice, image } = book;
+    const { name, resalePrice, image, _id } = book;
+    console.log(book)
     const { user } = useContext(AuthContext);
 
 
@@ -25,7 +26,8 @@ const BookNowModal = ({ book, setBook }) => {
             phone,
             productName,
             resalePrice,
-            image
+            image,
+            productId: _id
 
         }
 

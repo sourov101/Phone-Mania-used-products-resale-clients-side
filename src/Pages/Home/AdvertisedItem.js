@@ -12,19 +12,26 @@ const AdvertisedItem = () => {
 
     })
 
+
+    console.log(products)
     if (isLoading) {
         return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
     }
     return (
-        <div>
-            <h1 className='text-3xl mt-10'>Available Items</h1>
-            <div >
+        <div >
+            <h1 className='text-3xl mt-10 text-center'>Advertised Items</h1>
+            <div className='grid my-8 gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                 {
-                    products.map(product => <AdvertisedItemCard key={product._id} product={product}
-                        setBook={setBook}></AdvertisedItemCard>)
+                    products.map(product => <React.Fragment key={product._id}>
+                        {
+                            product.availability === 'available' && product.paid !== true && product.advertise === 'advertise' && < AdvertisedItemCard product={product}
+                                setBook={setBook}></AdvertisedItemCard>
+                        }
+                    </React.Fragment>)
                 }
+
             </div>
-        </div>
+        </div >
     );
 };
 

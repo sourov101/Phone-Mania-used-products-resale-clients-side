@@ -19,6 +19,7 @@ import AdminRoute from './Routes/AdminRoutes';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import MyProduct from './Pages/Dashboard/MyProduct';
 import SellerRoute from './Routes/SellerRoutes';
+import Payment from './Pages/Dashboard/Payment';
 
 function App() {
   const router = createBrowserRouter([
@@ -57,7 +58,7 @@ function App() {
       children: [
         {
           path: '/dashboard',
-          element: <MyBookings></MyBookings>
+          element: <PrivateRoute><MyBookings></MyBookings></PrivateRoute>
         },
         {
           path: '/dashboard/allusers',
@@ -66,6 +67,7 @@ function App() {
         {
           path: '/dashboard/allsellers',
           element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
+
         },
         {
           path: '/dashboard/reporteditems',
@@ -78,6 +80,11 @@ function App() {
         {
           path: '/dashboard/myproduct',
           element: <SellerRoute><MyProduct></MyProduct></SellerRoute>
+        },
+        {
+          path: '/dashboard/payment/:id',
+          element: <PrivateRoute><Payment></Payment></PrivateRoute>,
+          loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
         },
 
       ]

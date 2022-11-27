@@ -30,6 +30,28 @@ const MyProduct = () => {
                 }
             })
     }
+
+    const handelAdvertise = id => {
+        fetch(`http://localhost:5000/products/advertise/${id}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('Advertise confirmed')
+                    refetch();
+                }
+            })
+
+
+    }
+
+
+
     return (
         <div>
             <h3 className="text-3xl mb-5">My Products</h3>
@@ -37,24 +59,24 @@ const MyProduct = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+
                             <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Status</th>
                             <th>Delete</th>
-                            <th></th>
+                            <th>Advertise</th>
 
 
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            myProducts.map((myProduct, i) => <React.Fragment key={myProduct._id}>
+                            myProducts.map((myProduct) => <React.Fragment key={myProduct._id}>
                                 {
                                     myProduct?.email === user?.email &&
                                     <tr>
-                                        <th>{i + 1}</th>
+
                                         <td><div className="avatar">
                                             <div className="w-24 mask mask-squircle">
                                                 <img src={myProduct?.image} alt='' />
@@ -71,7 +93,7 @@ const MyProduct = () => {
                                         </td>
                                         <td>
                                             {myProduct.availability === 'available' &&
-                                                <button className='btn btn-info btn-sm'>Advertise</button>
+                                                <button onClick={() => handelAdvertise(myProduct._id)} className='btn btn-info btn-sm'>Advertise</button>
                                             }
 
                                         </td>

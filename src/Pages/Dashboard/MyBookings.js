@@ -1,13 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { PacmanLoader } from 'react-spinners';
 import { AuthContext } from '../../context/AuthProvider';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
     const url = `http://localhost:5000/bookings?email=${user?.email}`;
 
-    const { data: bookedItems = [], refetch } = useQuery({
+    const { data: bookedItems = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -16,10 +17,14 @@ const MyBookings = () => {
                 }
             });
             const data = await res.json();
+            console.log(bookedItems);
             return data;
         }
     })
+    if (isLoading) {
+        return <PacmanLoader className='mx-auto mt-10'></PacmanLoader>
 
+    }
     return (
         <div>
             <h3 className="text-3xl mb-5">My Ordered Items</h3>
@@ -52,7 +57,7 @@ const MyBookings = () => {
                                 <td>
                                     {Item.resalePrice && !Item.paid && <Link to={`/dashboard/payment/${Item._id}`}><button className='btn btn-info btn-sm'>pay</button></Link>}
                                     {
-                                        Item.price && Item.paid && <span className='text-primary'>paid</span>
+                                        Item.resalePrice && Item.paid && <span className='text-green-500'>paid</span>
                                     }
                                 </td>
                             </tr>)

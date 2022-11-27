@@ -24,7 +24,7 @@ const Catagories = () => {
     }
     return (
         <div>
-            <h1 className='text-3xl mt-10'>Catagories </h1>
+            <h1 className='text-3xl mt-10 text-center'>Catagories </h1>
 
             <div className='grid my-10 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {

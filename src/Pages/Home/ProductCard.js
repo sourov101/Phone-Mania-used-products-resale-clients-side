@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { FaCheck } from 'react-icons/fa';
 import BookNowModal from './BookNowModal';
 
@@ -6,9 +7,31 @@ import BookNowModal from './BookNowModal';
 const ProductCard = ({ product }) => {
     const { name, image, resalePrice, originalPrice, yearOfUse, postTime, sellerName, location } = product;
     const [book, setBook] = useState(null);
+
+
+    const handleReport = (productData) => {
+        console.log(productData);
+        fetch('http://localhost:5000/reported/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged === true) {
+
+                    toast.success('report confirmed')
+                }
+                console.log(data);
+            })
+    }
+
+
     return (
         <div className='mx-auto '>
-            <div className="card w-96 bg-base-100 shadow-xl ">
+            <div className="card bg-base-100 shadow-xl ">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -34,7 +57,17 @@ const ProductCard = ({ product }) => {
                         htmlFor="booking-modal"
                         className="btn btn-primary text-white"
                         onClick={() => setBook(product)}
-                    >Book Now</label>
+                    >Book Now
+                    </label>
+
+                </div>
+                <div className='text-center my-4'>
+
+                    <label
+                        className="btn btn-xs btn-error text-white"
+                        onClick={() => handleReport(product)}
+                    >Report Product
+                    </label>
 
                 </div>
                 <div>

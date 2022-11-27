@@ -4,8 +4,10 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../context/AuthProvider';
 import { PacmanLoader } from 'react-spinners';
+import { useNavigate } from 'react-router-dom';
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
 
     const [Sellers, setSellers] = useState([]);
@@ -37,7 +39,7 @@ const AddProduct = () => {
                 if (data.acknowledged === true) {
 
                     toast.success('product added successfully');
-                    reset();
+                    navigate('/dashboard/myproduct')
                 }
                 console.log(data);
             })
@@ -67,13 +69,28 @@ const AddProduct = () => {
                         Sellers.map(seller => <React.Fragment key={seller._id}>
                             {
                                 seller?.email === user?.email &&
-                                <input type="text" defaultValue={seller?.verified} readOnly {...register('verified', {
-                                    required: "email is Required",
+                                <React.Fragment>{
+                                    seller?.verified === 'true' &&
+                                    <input type="text" defaultValue={seller?.verified} readOnly {...register('verified', {
+                                        required: "email is Required",
+
+                                    }
+
+                                    )}
+                                        className="input input-bordered w-full " />
 
                                 }
+                                    {seller?.verified !== 'true' && <input type="text" defaultValue={'false'} readOnly {...register('verified', {
+                                        required: "email is Required",
 
-                                )}
-                                    className="input input-bordered w-full " />
+                                    }
+
+                                    )}
+                                        className="input input-bordered w-full " />}
+                                </React.Fragment>
+
+
+
                             }
                         </React.Fragment>)
                     }
