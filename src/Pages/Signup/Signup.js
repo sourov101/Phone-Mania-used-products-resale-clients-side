@@ -46,7 +46,7 @@ const Signup = () => {
 
         const saveUserToDb = (name, email, userType) => {
             const user = { name, email, userType };
-            fetch('http://localhost:5000/users', {
+            fetch('https://phone-mania-server-sourov101.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -84,7 +84,7 @@ const Signup = () => {
 
         const saveUserToDb = (name, email, userType) => {
             const user = { name, email, userType };
-            fetch('http://localhost:5000/users', {
+            fetch('https://phone-mania-server-sourov101.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

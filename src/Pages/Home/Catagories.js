@@ -8,7 +8,7 @@ const Catagories = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/brands')
+        axios.get('https://phone-mania-server-sourov101.vercel.app/brands')
             .then(data => {
 
                 const brandData = data.data;

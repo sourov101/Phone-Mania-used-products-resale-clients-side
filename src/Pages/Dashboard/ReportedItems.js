@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 
 const ReportedItems = () => {
 
-    const url = 'http://localhost:5000/reported';
+    const url = 'https://phone-mania-server-sourov101.vercel.app/reported';
 
     const { data: reportedItems = [], refetch } = useQuery({
         queryKey: ['reported'],
@@ -16,7 +16,7 @@ const ReportedItems = () => {
     })
 
     const handelDelete = id => {
-        fetch(`http://localhost:5000/reported/${id}`, {
+        fetch(`https://phone-mania-server-sourov101.vercel.app/reported/${id}`, {
             method: 'DELETE',
 
         })
@@ -36,7 +36,7 @@ const ReportedItems = () => {
     console.log(reportedItems);
     return (
         <div>
-            <h3 className="text-3xl mb-5">My Ordered Items</h3>
+            <h3 className="text-3xl mb-5">Reported Items</h3>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>

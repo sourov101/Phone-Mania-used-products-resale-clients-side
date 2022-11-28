@@ -14,11 +14,11 @@ const CheckOutForm = ({ info }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://phone-mania-server-sourov101.vercel.app/create-payment-intent", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
+
             },
             body: JSON.stringify({ resalePrice }),
         })
@@ -89,7 +89,7 @@ const CheckOutForm = ({ info }) => {
 
             }
 
-            fetch('http://localhost:5000/payment', {
+            fetch('https://phone-mania-server-sourov101.vercel.app/payment', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -107,7 +107,7 @@ const CheckOutForm = ({ info }) => {
                 })
 
 
-            fetch(`http://localhost:5000/products/${info.productId}`, {
+            fetch(`https://phone-mania-server-sourov101.vercel.app/products/${info.productId}`, {
                 method: 'PUT',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

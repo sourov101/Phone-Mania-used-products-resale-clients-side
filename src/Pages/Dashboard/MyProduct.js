@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const MyProduct = () => {
     const { user } = useContext(AuthContext);
-    const url = 'http://localhost:5000/products';
+    const url = 'https://phone-mania-server-sourov101.vercel.app/products';
 
     const { data: myProducts = [], refetch } = useQuery({
         queryKey: ['products'],
@@ -17,7 +17,7 @@ const MyProduct = () => {
     })
 
     const handelDelete = id => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://phone-mania-server-sourov101.vercel.app/products/${id}`, {
             method: 'DELETE',
 
         })
@@ -32,7 +32,7 @@ const MyProduct = () => {
     }
 
     const handelAdvertise = id => {
-        fetch(`http://localhost:5000/products/advertise/${id}`, {
+        fetch(`https://phone-mania-server-sourov101.vercel.app/products/advertise/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

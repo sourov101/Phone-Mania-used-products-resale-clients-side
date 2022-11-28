@@ -17,7 +17,7 @@ const Payment = () => {
     const navigation = useNavigation();
     console.log('info', info);
 
-    // const url = 'http://localhost:5000/products';
+    // const url = 'https://phone-mania-server-sourov101.vercel.app/products';
 
     // const { data: products = [], isLoading } = useQuery({
     //     queryKey: ['bookings'],

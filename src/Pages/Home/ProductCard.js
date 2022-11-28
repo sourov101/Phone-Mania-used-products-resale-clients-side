@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
 
     const handleReport = (productData) => {
         console.log(productData);
-        fetch('http://localhost:5000/reported/', {
+        fetch('https://phone-mania-server-sourov101.vercel.app/reported/', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

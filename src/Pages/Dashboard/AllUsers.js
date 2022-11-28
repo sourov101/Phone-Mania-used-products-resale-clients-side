@@ -8,7 +8,7 @@ const AllUsers = () => {
     const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://phone-mania-server-sourov101.vercel.app/users');
             const data = await res.json();
             console.log(data);
             return data;
@@ -16,7 +16,7 @@ const AllUsers = () => {
     })
 
     const handelAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://phone-mania-server-sourov101.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -33,7 +33,7 @@ const AllUsers = () => {
     }
 
     const handelDelete = id => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://phone-mania-server-sourov101.vercel.app/users/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

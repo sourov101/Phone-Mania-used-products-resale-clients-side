@@ -14,7 +14,7 @@ const AddProduct = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/users')
+        axios.get('https://phone-mania-server-sourov101.vercel.app/users')
             .then(data => {
 
                 const brandData = data.data;
@@ -27,7 +27,7 @@ const AddProduct = () => {
 
     const handleProduct = (productData) => {
         console.log(productData);
-        fetch('http://localhost:5000/products', {
+        fetch('https://phone-mania-server-sourov101.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

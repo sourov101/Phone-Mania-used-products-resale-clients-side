@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 
 const MyBookings = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://phone-mania-server-sourov101.vercel.app/bookings/${user?.email}`;
 
     const { data: bookedItems = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -17,7 +17,6 @@ const MyBookings = () => {
                 }
             });
             const data = await res.json();
-            console.log(bookedItems);
             return data;
         }
     })
@@ -43,8 +42,8 @@ const MyBookings = () => {
                     </thead>
                     <tbody>
                         {
-                            bookedItems.map((Item, i) => <tr key={Item._id}>
-                                <th>{i + 1}</th>
+                            bookedItems.map((Item) => <tr key={Item._id}>
+
                                 <td><div className="avatar">
                                     <div className="w-24 mask mask-squircle">
                                         <img src={Item?.image} alt='' />

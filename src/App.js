@@ -46,7 +46,7 @@ function App() {
         {
           path: '/product/:id',
           element: <PrivateRoute><Products></Products></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({ params }) => fetch(`https://phone-mania-server-sourov101.vercel.app/products/${params.id}`)
         },
 
 
@@ -83,8 +83,8 @@ function App() {
         },
         {
           path: '/dashboard/payment/:id',
-          element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-          loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+          element: <Payment></Payment>,
+          loader: ({ params }) => fetch(`https://phone-mania-server-sourov101.vercel.app/bookings/${params.id}`)
         },
 
       ]

@@ -31,7 +31,7 @@ const BookNowModal = ({ book, setBook }) => {
 
         }
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://phone-mania-server-sourov101.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
